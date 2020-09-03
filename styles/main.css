@@ -1,0 +1,125 @@
+html,body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--background-color);
+}
+strong{
+    color: var(--text-header);
+}
+p{
+    color: white;
+    font: 300 1.2rem Archivo;
+    margin: 1.4rem 2rem;
+    max-width: 1000px;
+}
+
+.header{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    font: 100 .6rem Work Sans;
+    color: var(--text-header);
+    width: 100%;
+}
+.main{
+    border-radius: .6rem;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1.2rem;
+}
+.main div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    background: var(--card-color);
+}
+.main h1{
+    color: white;
+    font: 700 1.8rem Work Sans;
+    margin-bottom: .4rem;
+}
+.main input{
+    border: 1px solid darkgrey;
+    text-align: center;
+    border-radius: .6rem;
+    font: 300 1.4rem Archivo;
+    padding-left: .4rem;
+    padding: .4rem .6rem;
+    margin-bottom: .4rem;
+    transition: 300ms;
+}
+
+input:focus, button:focus{
+    transition: 300ms;
+    outline: none;
+    border-color: lightgreen;
+}
+button:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 300ms;
+    background-color: lightgreen;
+}
+
+#adicionar{
+    margin: 1.2rem;
+    color: white;
+    background: var(--accent-color);
+    border: none;
+    font: 700 1.8rem Archivo;
+    width: 60vw;
+    border-radius: 2rem;
+    padding: .4rem .4rem;
+}
+#softwaresInput, #custosDiv, #CustosVariaveisDiv{
+    padding-bottom: 0;
+}
+.main button{
+    color: var(--text-header);
+    margin-top: .4rem;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 114%;
+    border-radius: 0 0 1rem 1rem ; 
+    transition: 300ms;
+    background: var(--accent-color);
+    border: none;
+    font: 700 2rem Raleway;
+}
+
+ul{
+    border-top: 1px solid white;
+    margin-top: .5rem;
+    width: 80vw;
+    padding: 0;
+}
+li{
+    transition: 300ms;
+    color: white;
+    text-align: start;
+    font: 100 1.2rem Archivo;
+    padding: .2rem;
+    list-style-type: none;
+}
+
+@media(min-width: 700px){
+    .main div{
+        padding-bottom: 2rem;
+    }
+    .main button{
+        margin-bottom: 2rem;
+        width: 80%;
+    }
+}

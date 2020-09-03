@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro funcionário</title>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo">
+    <link rel="stylesheet" href="../../styles/root.css">
+</head>
+
+<body>
+    <div class="header" class="header">
+        <h1>Cálculo Pessoal</h1>
+    </div>
+    
+    <p>
+        <strong>Atenção:</strong>
+        Insira os dados de valores referentes ao seu custo mensal,
+        o software será encarregado de transformar os valores de
+        acordo com o necessário.
+    </p>
+    <div class="main" id="nome">
+        <div class="nomeDiv">
+            <h1>Seu nome</h1>
+            <input type="text" id="nomeInput">
+        </div>
+        <div class="salarioBase">
+            <h1>Salário desejado</h1>
+            <input type="text" id="salarioInput" placeholder="R$0.00">
+        </div>
+        <div class="divCustosVariaveis" id="CustosVariaveisDiv">
+            <h1>Seus custos variáveis</h1>
+            <ul id="ulCustosVariaveisElement" hidden="true"></ul>
+            <input type="text" placeholder="R$0.00" id="custosVariaveisInput">
+            <button id="createCustosV">+</button>
+        </div>
+        <div class="divCustos" id="custosDiv">
+            <h1>Seus custos fixos</h1>
+            <ul id="listBoxCustos" hidden="true">
+            </ul>
+            <input type="text" id="custosInput" placeholder="R$0.00">
+            <button id="createCustos">+</button>
+        </div>
+        <div class="softwares" id="softwaresInput">
+            <h1>Softwares</h1>
+            <ul id="listBoxSoftwares" hidden="true"></ul>
+            <input type="text" placeholder="Nome" id="softwareName">
+            <input type="text" placeholder="R$0.00" id="softwaresValues">
+            <button id="criarSoftwares">+</button>
+        </div>
+    </div>
+    <button id="adicionar">Adicionar</button>
+    <script src="../../src/main.js"></script>
+</body>
+
+</html>
