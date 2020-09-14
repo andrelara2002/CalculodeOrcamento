@@ -2,6 +2,14 @@ html, body{
     padding: 0;
     margin: 0;
 }
+.header{
+    box-shadow: 1px 1px 5px 2px rgb(247, 247, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 900 1rem Roboto;
+    text-align: center;   
+}
 
 .cardDiv{
     margin: .8rem;
@@ -22,9 +30,49 @@ html, body{
 }
 .cardDiv strong{
     margin: 0;
-    font: 700 1.2rem sans-serif;
+    font: 700 1.6rem Roboto;
 }
 .cardDiv p{
     margin: 0;
-    font: 300 .8rem sans-serif;
+    font: 300 .8rem Roboto;
+}
+.card{
+    font: 100 1.2rem Roboto;
+    margin: .8rem;
+    border-radius: 2rem;
+    box-shadow: 0 5px 8px 1px #eeeeee;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+#perdas{
+    font-weight: 900;
+    color: red;
+}
+#ganhos{
+    font-weight: 900;
+    color: green;
+}
+.card strong{
+    line-height: 60%;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card strong p{
+    font-size: rem;
+    color: darkgray;
+}
+
+.spacer{
+    height: 1rem;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+li{
+    margin: 0;
+    padding: 0;
 }
