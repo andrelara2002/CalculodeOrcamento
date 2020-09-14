@@ -1,4 +1,5 @@
 html, body{
+    background-color: var(--background-color);
     padding: 0;
     margin: 0;
 }
@@ -54,6 +55,7 @@ html, body{
     color: green;
 }
 .card strong{
+    color: var(--text-color);
     line-height: 60%;
     font-size: 1.2rem;
     font-weight: 700;
@@ -75,4 +77,15 @@ ul{
 li{
     margin: 0;
     padding: 0;
+}
+
+a{
+    margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+    font: 2rem 900 Roboto;
+    color: black;
+}
+h1{
+    color: var(--text-color);
 }
