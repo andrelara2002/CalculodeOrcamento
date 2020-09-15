@@ -3,19 +3,12 @@ html, body{
     padding: 0;
     margin: 0;
 }
-.header{
-    box-shadow: 1px 1px 5px 2px rgb(247, 247, 247);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font: 900 1rem Roboto;
-    text-align: center;   
-}
 
 .cardDiv{
+    background: var(--card-color);
     margin: .8rem;
-    border-radius: 2rem;
-    box-shadow: 0 5px 8px 1px #eeeeee;
+    border-radius: 1rem;
+    box-shadow: 0 5px 8px 1px #313131;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -23,7 +16,6 @@ html, body{
     align-items: center;
 }
 .cardDiv img{
-    box-shadow: 0 5px 8px 1px #eeeeee;
     border-radius: 1rem;
     width: 6rem;
     height: 6rem;
@@ -38,10 +30,10 @@ html, body{
     font: 300 .8rem Roboto;
 }
 .card{
+    background: var(--card-color);
     font: 100 1.2rem Roboto;
     margin: .8rem;
-    border-radius: 2rem;
-    box-shadow: 0 5px 8px 1px #eeeeee;
+    border-radius: 1rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -52,7 +44,7 @@ html, body{
 }
 #ganhos{
     font-weight: 900;
-    color: green;
+    color: lightgreen;
 }
 .card strong{
     color: var(--text-color);
