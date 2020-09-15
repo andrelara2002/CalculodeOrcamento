@@ -1,4 +1,102 @@
-.header{
+html, body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: var(--background-color);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-color);
+    border-radius: .5rem;
+    margin: .2rem .8rem;
+    padding: .2rem;
+}
+
+.header h1{
+    font: 700 2rem Roboto;
+    line-height: .8rem;
+}
+.header h2{
+    margin: .2;
+    font: 900 1.8rem Roboto;
+    line-height: 0;
+}
+
+.card{
+    background: var(--card-color);
+    font: 100 1.2rem Roboto;
+    margin: .8rem;
+    border-radius: .5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card strong{
+    color: var(--text-color);
+    line-height: 60%;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card strong p{
+    font-size: rem;
+    color: darkgray;
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#metas-list li{
+    align-items: flex-end;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: .2rem;
+    box-shadow: 1px 0px 8px 1px #d1d1d1;
+}
+#metas-list p {
+    font-size: 1rem;
+    text-align: end;
+    padding: 0;
+    margin: 0;
+    line-height: .8;
+}
+#metas-list strong{
+    line-height: 1.2rem;
+}
+
+#adicionar-button{
+    transition: 300ms;
+    background: var(--card-color);
+    border: none;
+    padding: 1rem;
+    border-radius: .5rem;
+    font: 700 2rem Roboto;
+    margin: 1rem;
+}
+
+#adicionar-button:focus{
+    transform: scale(1.05);
+    opacity: 0.8;
+    outline: none;
+}
+
+#adicionar-button:hover{
+    cursor: pointer;
+    transition: 300ms;
+    background: #ff175c;
+    border-radius: 3rem;
+    color: white;
 }
