@@ -4,7 +4,37 @@ const listInvestimentos = document.getElementById("investimentos-list")
 const listCustosF = document.getElementById('custosf-list')
 const listCustosV = document.getElementById('custosv-list')
 
-const state = JSON.parse(localStorage.getItem('local_list')) || []
+const state = {
+    ganhos: 1000.00,
+    perdas: 900.00,
+    expectativa: "--",
+    lucroAtual: 0,
+    previsaoFixa: 0,
+    previsaoVariavel: 0,
+    metas: {
+        nome: ["Photoshop", "PC novo", "Illustrator"],
+        valorTotal: [],
+        valorMensal: [200, 300, 5000],
+        ValorDario: [],
+        tempoemMeses: []
+    },
+    investimentos: {
+        nome: [],
+        valorTotal: [],
+        valorMensal: [],
+        valorDiario: [],
+        tempoemMeses: []
+    },
+    custosFixos: {
+        nome: [],
+        valorMensal: []
+    },
+    custosVariaveis: {
+        nome: [],
+        valorMensal: []
+    }
+
+}
 
 render = function () {
     listInvestimentos.innerHTML = ""
@@ -158,6 +188,10 @@ calcExpectativa = () =>{
 
 saveToStorage = () =>{
     localStorage.setItem('local_list', JSON.stringify(state))
+}
+
+document.getElementById('metas-list').onclick = () => {
+    window.location.href = "../public/pages/metas.html"
 }
 
 render();
