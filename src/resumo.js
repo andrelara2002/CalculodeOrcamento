@@ -5,16 +5,16 @@ const listCustosF = document.getElementById('custosf-list')
 const listCustosV = document.getElementById('custosv-list')
 
 const state = {
-    ganhos: 1000,
-    perdas: 900,
+    ganhos: 1000.00,
+    perdas: 900.00,
     expectativa: "--",
     lucroAtual: 0,
     previsaoFixa: 0,
     previsaoVariavel: 0,
     metas: {
-        nome: [],
+        nome: ["Photoshop", "PC novo", "Illustrator"],
         valorTotal: [],
-        valorMensal: [],
+        valorMensal: [200, 300, 5000],
         ValorDario: [],
         tempoemMeses: []
     },
@@ -38,12 +38,21 @@ const state = {
 
 render = function () {
     listResumo.innerHTML = ""
-    renderResumo("Meus ganhos", state.ganhos, "ganhos")
-    renderResumo("Meus gastos", state.perdas, "gastos")
+    listMetas.innerHTML = ""
+    renderResumo("Meus ganhos",`R$ ${state.ganhos}`, "ganhos")
+    renderResumo("Meus gastos",`R$ ${state.perdas}`, "gastos")
     calcExpectativa()
     renderResumo("Expectativa", state.expectativa, "none")
+    renderResumo("Lucro Atual", `%${state.lucroAtual}`, "none")
+    renderResumo("Previsão Fixa",`R$ ${state.previsaoFixa}`, "none")
+    renderResumo("Previsão Fixa",`R$ ${state.previsaoVariavel}`, "none")
     getIdColor("ganhos")
     getIdColor("gastos")
+
+    for (let states of state.metas.nome){
+        const num = state.metas.nome.indexOf(states)
+        renderMetas(states, `R$ ${state.metas.valorMensal[num]}`)
+    }
 }
 
 renderResumo = (label, valor, id) => {
@@ -63,6 +72,25 @@ renderResumo = (label, valor, id) => {
 
     listResumo.appendChild(listElement)
 }
+
+renderMetas = (label, valor, id) =>{
+    const listElement = document.createElement('li')
+    const labelElement = document.createElement('strong')
+    const labelText = document.createTextNode(label)
+    const valorElement = document.createElement('p')
+    const valorText = document.createTextNode(valor)
+    labelElement.setAttribute("id", id)
+    labelElement.style.lineHeight = "0"
+
+    labelElement.appendChild(labelText)
+    valorElement.appendChild(valorText)
+
+    labelElement.appendChild(valorElement)
+    listElement.appendChild(labelElement)
+
+    listMetas.appendChild(listElement)
+}
+
 getIdColor = (id) => {
     const strongElement = document.getElementById(id)
 
