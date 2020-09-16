@@ -4,36 +4,25 @@ const listInvestimentos = document.getElementById("investimentos-list")
 const listCustosF = document.getElementById('custosf-list')
 const listCustosV = document.getElementById('custosv-list')
 
-const state = {
-    ganhos: 1000.00,
-    perdas: 900.00,
-    expectativa: "--",
-    lucroAtual: 0,
-    previsaoFixa: 0,
-    previsaoVariavel: 0,
-    metas: {
-        nome: ["Photoshop", "PC novo", "Illustrator"],
-        valorTotal: [],
-        valorMensal: [200, 300, 5000],
-        ValorDario: [],
-        tempoemMeses: []
-    },
-    investimentos: {
-        nome: [],
-        valorTotal: [],
-        valorMensal: [],
-        valorDiario: [],
-        tempoemMeses: []
-    },
-    custosFixos: {
-        nome: [],
-        valorMensal: []
-    },
-    custosVariaveis: {
-        nome: [],
-        valorMensal: []
-    }
+const letstate = JSON.parse(localStorage.getItem("local_list")) || []
 
+const state = {
+    ganhos: letstate.ganhos,
+    perdas: letstate.perdas,
+    expectativa: letstate.expectativa,
+    lucroAtual: letstate.lucroAtual,
+    previsaoFixa: letstate.previsaoFixa,
+    previsaoVariavel: letstate.previsaoVariavel,
+    metas: {
+        nome: letstate.metas.nome,
+        valorTotal: letstate.metas.valorTotal,
+        valorMensal: letstate.metas.valorMensal,
+        ValorDario: letstate.metas.valorDiario,
+        tempoemMeses: letstate.metas.tempoemMeses
+    },
+    investimentos: letstate.investimentos,
+    custosFixos: letstate.custosFixos,
+    custosVariaveis: letstate.custosVariaveis
 }
 
 render = function () {
@@ -54,7 +43,7 @@ render = function () {
 
     for (let states of state.metas.nome){
         const num = state.metas.nome.indexOf(states)
-        renderMetas(states, `R$ ${state.metas.valorMensal[num]}`)
+        renderMetas(states, `R$ ${state.metas.valorMensal[num]} /Mês`)
     }
 
     for (let states of state.investimentos.nome){
@@ -190,7 +179,7 @@ saveToStorage = () =>{
     localStorage.setItem('local_list', JSON.stringify(state))
 }
 
-document.getElementById('metas-list').onclick = () => {
+document.getElementById('metas-card').onclick = () => {
     window.location.href = "../public/pages/metas.html"
 }
 

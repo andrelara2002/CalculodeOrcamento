@@ -20,7 +20,7 @@ html, body{
     margin: 1.9rem 0;
     color: var(--text-accentcolor);
     line-height: 0rem;
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 .header h2 strong{
@@ -76,7 +76,7 @@ ul {
     line-height: .8;
 }
 #metas-list strong{
-    line-height: 1.2rem;
+    line-height: 2rem;
 }
 
 #adicionar-button{
