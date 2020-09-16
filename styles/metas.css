@@ -7,7 +7,17 @@ html, body{
     display: flex;
     flex-direction: column;
 }
-
+a{
+    font: 700 1.2rem Roboto;
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+}
+a:active{
+    outline: none;
+    color: white;
+    text-decoration: none;
+}
 .header{
     background: var(--card-color);
     margin: .2rem .6rem;

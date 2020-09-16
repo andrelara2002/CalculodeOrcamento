@@ -26,6 +26,14 @@ const state = {
 }
 
 render = function () {
+    state.perdas = 0
+    for (let sate of state.metas.valorMensal){
+        state.perdas += sate
+    }
+    for (let sate of state.investimentos.valorMensal){
+        state.perdas += sate
+    }
+
     listInvestimentos.innerHTML = ""
     listResumo.innerHTML = ""
     listMetas.innerHTML = ""
@@ -48,7 +56,7 @@ render = function () {
 
     for (let states of state.investimentos.nome){
         const num = state.investimentos.nome.indexOf(states)
-        renderInvestimentos(states, `R$ ${state.investimentos.valorMensal[num]}`)
+        renderInvestimentos(states, `R$ ${state.investimentos.valorMensal[num]} /Mês`)
     }
 
     for (let states of state.custosFixos.nome){
@@ -181,6 +189,14 @@ saveToStorage = () =>{
 
 document.getElementById('metas-card').onclick = () => {
     window.location.href = "../public/pages/metas.html"
+}
+
+document.getElementById('investimentos-card').onclick = () =>{
+    window.location.href = "../public/pages/investimentos.html"
+}
+
+document.getElementById('custos-variaveis').onclick = () =>{
+    window.location.href = '../public/pages/custosVariaveis.html'
 }
 
 render();
