@@ -8,31 +8,34 @@ html, body{
     flex-direction: column;
 }
 
-.header {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.header{
     background: var(--card-color);
-    border-radius: .5rem;
-    margin: .2rem .8rem;
-    padding: .2rem;
+    margin: .2rem .2rem;
+    padding: 2rem 2rem;
+    line-height: 1rem;
+    font: 700 .5rem Roboto;
+    border-radius: .8rem;
+}
+.header h2 {
+    margin: 1.9rem 0;
+    color: var(--text-accentcolor);
+    line-height: 0rem;
+    font-size: 3rem;
 }
 
-.header h1{
-    font: 700 2rem Roboto;
-    line-height: .8rem;
+.header h2 strong{
+    font-size: 1rem;
 }
-.header h2{
-    margin: .2;
-    font: 900 1.8rem Roboto;
-    line-height: 0;
+
+.header p {
+    font-size: .8rem;
+    line-height: .2rem;
 }
 
 .card{
     background: var(--card-color);
     font: 100 1.2rem Roboto;
-    margin: .8rem;
+    margin: .6rem;
     border-radius: .5rem;
     padding: 2rem;
     display: flex;
