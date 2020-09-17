@@ -7,9 +7,10 @@ html, body{
 }
 
 .cardDiv img{
+    border: 3px solid var(--background-color);
     border-radius: 1rem;
-    width: 6rem;
-    height: 6rem;
+    width: 9rem;
+    height: 9rem;
     margin: 1rem;
 }
 .cardDiv strong{
