@@ -42,15 +42,6 @@ a:active{
     line-height: .6rem;
 }
 
-.card{
-    background: var(--card-color);
-    font: 100 1.2rem Roboto;
-    margin: .6rem;
-    border-radius: .5rem;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
 
 .card strong{
     color: var(--text-color);

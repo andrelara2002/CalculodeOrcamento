@@ -6,17 +6,6 @@ html, body{
     margin: 0;
 }
 
-.cardDiv{
-    background: var(--card-color);
-    margin: .8rem;
-    border-radius: 1rem;
-    box-shadow: 0 5px 8px 1px #313131;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 .cardDiv img{
     border-radius: 1rem;
     width: 6rem;
@@ -31,15 +20,7 @@ html, body{
     margin: 0;
     font: 300 .8rem Roboto;
 }
-.card{
-    background: var(--card-color);
-    font: 100 1.2rem Roboto;
-    margin: .8rem;
-    border-radius: 1rem;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-}
+
 #perdas{
     font-weight: 900;
     color: red;
@@ -69,10 +50,21 @@ ul{
     list-style: none;
 }
 li{
-    margin: 0;
-    padding: 0;
+    margin: 1rem 0;
+    border: 2px solid #f5f5f5;
+    padding: 1rem;
+    border-radius: .2rem;
 }
-
+li strong{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-rows: max-content;
+}
+li p{
+    text-align: end;
+    font-size: 1rem;
+}
 a{
     margin-top: 1rem;
     text-align: center;

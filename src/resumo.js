@@ -3,10 +3,17 @@ const listMetas = document.getElementById("metas-list")
 const listInvestimentos = document.getElementById("investimentos-list")
 const listCustosF = document.getElementById('custosf-list')
 const listCustosV = document.getElementById('custosv-list')
+const listRendas = document.getElementById('rendas-list')
+const userName = document.getElementById('user-name')
+const valorHora = document.getElementById('valor-hora')
 
 const letstate = JSON.parse(localStorage.getItem("local_list")) || []
 
 const state = {
+    perfil:{
+        nome:letstate.perfil.nome,
+        valorPorHora:letstate.perfil.valorPorHora
+    },
     ganhos: letstate.ganhos,
     perdas: letstate.perdas,
     expectativa: letstate.expectativa,
@@ -22,17 +29,42 @@ const state = {
     },
     investimentos: letstate.investimentos,
     custosFixos: letstate.custosFixos,
-    custosVariaveis: letstate.custosVariaveis
+    custosVariaveis: letstate.custosVariaveis,
+    rendas: {
+        nome: letstate.rendas.nome,
+        valorMensal: letstate.rendas.valorMensal
+    }
 }
 
 render = function () {
+
+    userName.innerHTML = state.perfil.nome
+    valorHora.innerHTML = `R$ ${Math.round(state.ganhos/(30*24))}/hora`
+    
     state.perdas = 0
+    this.perdaVariavel = 0
     for (let sate of state.metas.valorMensal){
         state.perdas += sate
     }
     for (let sate of state.investimentos.valorMensal){
         state.perdas += sate
     }
+    for (let sate of state.custosVariaveis.valorMensal){
+        state.perdas += sate
+    }
+    for (let sate of state.custosVariaveis.valorMensal){
+        this.perdaVariavel += sate
+    }
+    this.perdaVariavel += state.perdas
+
+    state.ganhos = 0
+    for (let sate of state.rendas.valorMensal){
+        state.ganhos += sate
+    }
+
+    calcPrevisaoFixa()
+    calcPrevisaoVariavel()
+    calcLucroAtual()
 
     listInvestimentos.innerHTML = ""
     listResumo.innerHTML = ""
@@ -45,7 +77,7 @@ render = function () {
     renderResumo("Expectativa", state.expectativa, "none")
     renderResumo("Lucro Atual", `%${state.lucroAtual}`, "none")
     renderResumo("Previsão Fixa",`R$ ${state.previsaoFixa}`, "none")
-    renderResumo("Previsão Fixa",`R$ ${state.previsaoVariavel}`, "none")
+    renderResumo("Previsão Variável",`R$ ${state.previsaoVariavel}`, "none")
     getIdColor("ganhos")
     getIdColor("gastos")
 
@@ -68,6 +100,12 @@ render = function () {
         const num = state.custosVariaveis.nome.indexOf(states)
         renderCustosVariaveis(states, `R$ ${state.custosVariaveis.valorMensal[num]}`)
     }
+
+    for (let states of state.rendas.nome){
+        const num = state.rendas.nome.indexOf(states)
+        renderRendasMensais(states, `R$ ${state.rendas.valorMensal[num]}`)
+    }
+
     saveToStorage()
 }
 
@@ -160,6 +198,24 @@ renderCustosVariaveis = (label, valor, id) =>{
     listCustosV.appendChild(listElement)
 }
 
+renderRendasMensais = (label, valor, id) =>{
+    const listElement = document.createElement('li')
+    const labelElement = document.createElement('strong')
+    const labelText = document.createTextNode(label)
+    const valorElement = document.createElement('p')
+    const valorText = document.createTextNode(valor)
+    labelElement.setAttribute("id", id)
+    labelElement.style.lineHeight = "0"
+
+    labelElement.appendChild(labelText)
+    valorElement.appendChild(valorText)
+
+    labelElement.appendChild(valorElement)
+    listElement.appendChild(labelElement)
+
+    listRendas.appendChild(listElement)
+}
+
 getIdColor = (id) => {
     const strongElement = document.getElementById(id)
 
@@ -183,20 +239,40 @@ calcExpectativa = () =>{
     }
 }
 
+calcPrevisaoFixa = () =>{
+    const result = state.ganhos - state.perdas
+    state.previsaoFixa = result
+}
+
+calcPrevisaoVariavel = () => {
+    const result = state.ganhos - this.perdaVariavel
+    state.previsaoVariavel = result
+}
+
+calcLucroAtual = () => {
+    let lucro = state.ganhos - state.perdas
+    lucro = lucro/(state.ganhos/100)
+    state.lucroAtual = Math.round(lucro)
+}
+
+document.getElementById('profile-card').onclick = () =>{
+    if (confirm(`Olá, seu nome é ${state.perfil.nome} Gostaria de alterar?`)){
+        const newName = prompt('Diga seu novo nome')
+        if (newName !== ""){
+            state.perfil.nome = newName
+            alert('Cadastrado com sucesso')
+        }
+        else{
+            alert('Erro de cadastro')
+        }
+    }
+    else{}
+    render()
+}
+
 saveToStorage = () =>{
     localStorage.setItem('local_list', JSON.stringify(state))
 }
 
-document.getElementById('metas-card').onclick = () => {
-    window.location.href = "../public/pages/metas.html"
-}
-
-document.getElementById('investimentos-card').onclick = () =>{
-    window.location.href = "../public/pages/investimentos.html"
-}
-
-document.getElementById('custos-variaveis').onclick = () =>{
-    window.location.href = '../public/pages/custosVariaveis.html'
-}
 
 render();

@@ -6,3 +6,35 @@
     --text-accentcolor:#4CD95A;
     --text-header: #52e8f9;
 }
+
+body{
+    max-width: 500px;
+}
+.card{
+    background: var(--card-color);
+    font: 100 1.2rem Roboto;
+    margin: .8rem;
+    border-radius: .6rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.cardDiv{
+    background: var(--card-color);
+    margin: .8rem;
+    border-radius: .6rem;
+    box-shadow: 0 5px 8px 1px #313131;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 700px){
+    html {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
