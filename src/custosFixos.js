@@ -2,7 +2,7 @@ const headerValue = document.getElementById("total-metas")
 const metasList = document.getElementById('metas-list')
 const mainContainer = document.getElementById('main')
 
-const state = JSON.parse(localStorage.getItem("local_list")) || []
+const state = JSON.parse(localStorage.getItem("Orc_local_list")) || []
 
 const { nome, valorMensal} = state.custosFixos
 
@@ -90,7 +90,7 @@ deleteElement = (pos) => {
 }
 
 saveToStorage = () => {
-    localStorage.setItem('local_list', JSON.stringify(state))
+    localStorage.setItem('Orc_local_list', JSON.stringify(state))
 }
 
 render()

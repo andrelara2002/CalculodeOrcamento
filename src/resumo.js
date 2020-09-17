@@ -7,32 +7,42 @@ const listRendas = document.getElementById('rendas-list')
 const userName = document.getElementById('user-name')
 const valorHora = document.getElementById('valor-hora')
 
-const letstate = JSON.parse(localStorage.getItem("local_list")) || []
-
-const state = {
+const state = JSON.parse(localStorage.getItem("Orc_local_list")) || {
     perfil:{
-        nome:letstate.perfil.nome,
-        valorPorHora:letstate.perfil.valorPorHora
+        nome:"Usuário",
+        valorPorHora:0
     },
-    ganhos: letstate.ganhos,
-    perdas: letstate.perdas,
-    expectativa: letstate.expectativa,
-    lucroAtual: letstate.lucroAtual,
-    previsaoFixa: letstate.previsaoFixa,
-    previsaoVariavel: letstate.previsaoVariavel,
+    ganhos: 0,
+    perdas: 0,
+    expectativa: 0,
+    lucroAtual: 0,
+    previsaoFixa: 0,
+    previsaoVariavel: 0,
     metas: {
-        nome: letstate.metas.nome,
-        valorTotal: letstate.metas.valorTotal,
-        valorMensal: letstate.metas.valorMensal,
-        ValorDario: letstate.metas.valorDiario,
-        tempoemMeses: letstate.metas.tempoemMeses
+        nome: [],
+        valorTotal: [],
+        valorMensal: [],
+        ValorDario: [],
+        tempoemMeses: []
     },
-    investimentos: letstate.investimentos,
-    custosFixos: letstate.custosFixos,
-    custosVariaveis: letstate.custosVariaveis,
+    investimentos: {
+        nome: [],
+        valorTotal: [],
+        valorMensal: [],
+        ValorDario: [],
+        tempoemMeses: []
+    },
+    custosFixos: {
+        nome: [],
+        valorMensal: [],
+    },
+    custosVariaveis: {
+        nome: [],
+        valorMensal: [],
+    },
     rendas: {
-        nome: letstate.rendas.nome,
-        valorMensal: letstate.rendas.valorMensal
+        nome: [],
+        valorMensal: []
     }
 }
 
@@ -271,7 +281,7 @@ document.getElementById('profile-card').onclick = () =>{
 }
 
 saveToStorage = () =>{
-    localStorage.setItem('local_list', JSON.stringify(state))
+    localStorage.setItem('Orc_local_list', JSON.stringify(state))
 }
 
 
